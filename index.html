@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Organizador de Gastos Mensais</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <h1>Organizador de Gastos Mensais</h1>
+
+  <form id="form">
+    <input type="text" id="nomeGasto" placeholder="Nome do gasto" required />
+    <input type="text" id="categoria" placeholder="Categoria" required />
+    <input type="number" id="valor" placeholder="Valor (R$)" step="0.01" required />
+    <input type="number" id="frequencia" placeholder="Frequência no mês" min="1" required />
+    <button type="submit">Adicionar Gasto</button>
+  </form>
+
+  <h2>Gastos Registrados</h2>
+  <ul id="lista-gastos"></ul>
+
+  <p>Total Mensal: R$ <span id="total-geral">0.00</span></p>
+
+  <button id="rodarTestesUnitBtn">Rodar Testes Unitários</button>
+  <button id="rodarTestesComponentBtn">Rodar Testes Component</button>
+
+  <div id="testes-resultados"></div>
+
+  <script src="src/gastos.js"></script>
+  <script src="src/rodarTestes.js"></script>
+  <script src="tests/unitario.test.js"></script>
+  <script src="tests/component.test.js"></script>
+</body>
+</html>
