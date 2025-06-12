@@ -1,4 +1,4 @@
-// Função que roda todos os testes unitários
+
 function runUnitTests() {
   testar("UNIT - Custo mensal simples", () => {
     const custo = calcularCustoMensal(100, 2);
@@ -19,9 +19,19 @@ function runUnitTests() {
     const custo = calcularCustoMensal(0, 10);
     if (custo !== 0) throw new Error(`Esperado 0, obtido ${custo}`);
   });
-
-  testar("UNIT - Custo mensal com valor negativo (deve calcular normalmente)", () => {
-    const custo = calcularCustoMensal(-20, 3);
-    if (custo !== -60) throw new Error(`Esperado -60, obtido ${custo}`);
+    testar("UNIT - Custo mensal com ambos valores zero", () => {
+    const custo = calcularCustoMensal(0, 0);
+    if (custo !== 0) throw new Error(`Esperado 0, obtido ${custo}`);
   });
+
+  testar("UNIT - Custo mensal com frequência 1", () => {
+    const custo = calcularCustoMensal(75, 1);
+    if (custo !== 75) throw new Error(`Esperado 75, obtido ${custo}`);
+  });
+
+  testar("UNIT - Custo mensal com valor 1 e frequência 10", () => {
+    const custo = calcularCustoMensal(1, 10);
+    if (custo !== 10) throw new Error(`Esperado 10, obtido ${custo}`);
+  });
+
 }

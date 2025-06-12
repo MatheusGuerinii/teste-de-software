@@ -1,12 +1,10 @@
-// Função pura exposta globalmente para testes
+
 window.calcularCustoMensal = function (valor, frequencia) {
   return valor * frequencia;
 };
 
-// Estado para armazenar os gastos adicionados
 const gastos = [];
 
-// Atualiza a lista de gastos e o total no DOM
 function atualizarListaEGastoTotal() {
   const lista = document.getElementById("lista-gastos");
   const totalGeral = document.getElementById("total-geral");
@@ -21,7 +19,6 @@ function atualizarListaEGastoTotal() {
     const li = document.createElement("li");
     li.textContent = `${gasto.nome} (${gasto.categoria}): R$ ${custo.toFixed(2)}`;
 
-    // Botão excluir
     const btnExcluir = document.createElement("button");
     btnExcluir.textContent = "Excluir";
     btnExcluir.style.marginLeft = "10px";
@@ -37,7 +34,6 @@ function atualizarListaEGastoTotal() {
   totalGeral.textContent = somaTotal.toFixed(2);
 }
 
-// Captura do evento submit do formulário
 document.getElementById("form").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -46,7 +42,6 @@ document.getElementById("form").addEventListener("submit", function (e) {
   const valor = parseFloat(document.getElementById("valor").value);
   const frequencia = parseInt(document.getElementById("frequencia").value);
 
-  // Validação simples
   if (!nome || !categoria || isNaN(valor) || isNaN(frequencia) || valor < 0 || frequencia < 1) {
     alert("Preencha todos os campos corretamente.");
     return;
@@ -57,10 +52,9 @@ document.getElementById("form").addEventListener("submit", function (e) {
   atualizarListaEGastoTotal();
 
   e.target.reset();
-  // Função para limpar gastos e atualizar a UI — útil para testes
 window.limparGastos = function () {
-  gastos.length = 0; // limpa o array
-  atualizarListaEGastoTotal(); // atualiza a interface (lista e total)
+  gastos.length = 0; 
+  atualizarListaEGastoTotal();
 };
 
 });
